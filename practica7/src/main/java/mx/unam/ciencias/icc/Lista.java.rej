@@ -1,0 +1,17 @@
+--- src/main/java/mx/unam/ciencias/icc/Lista.java
++++ src/main/java/mx/unam/ciencias/icc/Lista.java
+@@ -422,6 +594,7 @@ public class Lista<T> {
+      */
+     public Nodo getCabeza() {
+         // Aquí va su código.
++        return cabeza;
+     }
+ 
+     /**
+@@ -430,5 +603,6 @@ public class Lista<T> {
+      */
+     public Nodo getRabo() {
+         // Aquí va su código.
++        return rabo;
+     }
+ }
