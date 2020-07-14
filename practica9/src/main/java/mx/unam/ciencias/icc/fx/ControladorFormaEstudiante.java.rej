@@ -1,0 +1,67 @@
+--- src/main/java/mx/unam/ciencias/icc/fx/ControladorFormaEstudiante.java
++++ src/main/java/mx/unam/ciencias/icc/fx/ControladorFormaEstudiante.java
+@@ -88,21 +88,49 @@ public class ControladorFormaEstudiante extends ControladorForma {
+     /* Verifica que el nombre sea válido. */
+     private boolean verificaNombre(String n) {
+         // Aquí va su código.
++        if (n == null || n.isEmpty())
++            return false;
++        nombre = n;
++        return true;
+     }
+ 
+     /* Verifica que el número de cuenta sea válido. */
+     private boolean verificaCuenta(String c) {
+         // Aquí va su código.
++        if (c == null || c.isEmpty())
++            return false;
++        try {
++            cuenta = Integer.parseInt(c);
++        } catch (NumberFormatException nfe) {
++            return false;
++        }
++        return cuenta >= 10000000 && cuenta < 999999999;
+     }
+ 
+     /* Verifica que el promedio sea válido. */
+     private boolean verificaPromedio(String p) {
+         // Aquí va su código.
++        if (p == null || p.isEmpty())
++            return false;
++        try{
++            promedio = Double.parseDouble(p);
++        } catch (NumberFormatException nfe){
++            return false;
++        }
++        return promedio >= 0.0 && promedio <= 10.0;
+     }
+ 
+     /* Verifica que la edad sea válida. */
+     private boolean verificaEdad(String e) {
+         // Aquí va su código.
++        if(e == null || e.isEmpty())
++            return false;
++        try{
++            edad = Integer.parseInt(e);
++        } catch(NumberFormatException nfe){
++            return false;
++        }
++        return edad >= 13 && edad <= 99;
+     }
+ 
+     /* Actualiza al estudiante, o lo crea si no existe. */
+@@ -131,6 +159,7 @@ public class ControladorFormaEstudiante extends ControladorForma {
+      */
+     public void setVerbo(String verbo) {
+         // Aquí va su código.
++        botonAceptar.setText(verbo);
+     }
+ 
+     /**
+@@ -138,5 +167,6 @@ public class ControladorFormaEstudiante extends ControladorForma {
+      */
+     @Override public void defineFoco() {
+         // Aquí va su código.
++        entradaNombre.requestFocus();
+     }
+ }
